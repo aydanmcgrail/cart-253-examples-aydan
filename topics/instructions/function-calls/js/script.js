@@ -1,24 +1,22 @@
 /**
- * Title of Project
- * Author Name
+ * function calls
+ * aydan mc grail
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * working on the function calls examples.
  */
 
 "use strict";
 
-/**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
-*/
-function setup() {
 
+function setup() {
+    // once at the beginning of the program
+createCanvas(640,480);
 }
 
 
-/**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
-*/
-function draw() {
 
+function draw() {
+    // every frame
+    background(255,78,290);
+    rect(100,34,72,200);
 }
