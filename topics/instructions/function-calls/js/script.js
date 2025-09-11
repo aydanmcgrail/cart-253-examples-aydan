@@ -3,6 +3,8 @@
  * aydan mc grail
  * 
  * working on the function calls examples.
+ * there is a pink rectangle on the webpage
+ * the program is not interactive 
  */
 
 "use strict";
