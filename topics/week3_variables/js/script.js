@@ -8,11 +8,20 @@
 
 "use strict";
 
+let cheeseGreen = 255;
+let cheeseRed = 255;
+let cheeseBlue = 0;
+
+let holeSize = 120;
+let holeShade = 0;
+let holeX = 140;
+let holeY = 100;
+
 /**
  * create a canva here so we can work on it
 */
 function setup() {
-    createCanvas(840,280);
+    createCanvas(980,340);
 }
 
 
@@ -22,14 +31,17 @@ function setup() {
  * draw to follow cursor = mouseX, mouseY, 
  * change circle on center widht/height with mouse = (width / 2, height / 2, mouseX, mouseY);
  * fill color with cursor position = fill(mouseX, mouseY, 0);
+ * 
+ * draw a hole in a piece of cheese
 */
 function draw() {
-    background(0);
+    //the cheese
+    background(cheeseRed, cheeseGreen, cheeseBlue);
     
 // draw the circle
    push();
-   fill(255,255,0);
+   fill(holeShade);
    noStroke();
-   ellipse( mouseX, mouseY, 100, 100);
+   ellipse(holeX, holeY, holeSize);
    pop();
 }
