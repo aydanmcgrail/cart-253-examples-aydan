@@ -22,9 +22,9 @@ let mrFurious = {
 };
 
 let mouth = {
-    x: width 
-    size: 90
-maxSize: 300   
+    x: 0, 
+    size: 90,
+maxSize: 300,  
 }
 
 /**
@@ -34,6 +34,9 @@ function setup() {
     createCanvas(1000, 700);
 
     mrFurious.y = height / 4;
+    //width is a p5 thing so it goes in setup
+    
+    mouth.x = width;
 }
 
 /**
