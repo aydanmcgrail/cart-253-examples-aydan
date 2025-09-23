@@ -8,6 +8,7 @@
 "use strict";
 
 // Our creature
+//const instead of let when variables will always stay the same
 const creature = {
     // Position
     x: 200,
@@ -49,6 +50,11 @@ function draw() {
  */
 function checkInput() {
     // We'll need to figure this out
+    if(mouseIsPressed){creature.fill = creature.fills.happy;}
+    else if (keyIsPressed){creature.fill = creature.fills.angry}
+    else{creature.fill = creature.fills.bored}
+
+    
 }
 
 /**
