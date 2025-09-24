@@ -46,15 +46,15 @@ function draw() {
 }
 
 /**
- * Responds to user input
+ * Responds to user inputs
  */
 function checkInput() {
-    // We'll need to figure this out
-    if(mouseIsPressed){creature.fill = creature.fills.happy;}
-    else if (keyIsPressed){creature.fill = creature.fills.angry}
-    else{creature.fill = creature.fills.bored}
+    const distance=dist(mouseX,mouseY,creature.x,creature.y);
+    const mouseOverlapsCreature=(distance<creature.size/2);
+    const mouseIsMoving= (movedX!==0 || movedY !==0);
 
-    
+  if(mouseOverlapsCreature&&mouseIsMoving){creature.fill=creature.fills.happy;}
+  else{ creature.fill=creature.fills.bored}
 }
 
 /**
