@@ -54,7 +54,7 @@ function draw() {
  * Creature is happy if being massaged and otherwise bored
  */
 function checkInput() {
-    //this here stops being affected to alive conditions. (cest une boucle donc on doit le mettre en haut)
+    //this here stops being affected to alive conditions. cest une boucle donc on doit le mettre en haut)
     if(!creature.alive){return;}
 
     // Calculate the distance between the cursor and the creature
