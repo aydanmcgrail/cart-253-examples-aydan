@@ -66,11 +66,11 @@ function wrapMover() {
 
 // Top or bottom
 // If the mover's y is above the top or below the bottom
-if (mover < 0 || mover.y > height {
+if (mover < 0 || mover.y > height) {
     // Same idea
     mover.y = height - mover.y;
 }
-}
+
 
 /**
  * Display the mover as a circle
