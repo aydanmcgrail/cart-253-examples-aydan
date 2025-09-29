@@ -8,8 +8,9 @@
 
 "use strict";
 
-const puck={x:200,y:200,size:100,fill:"#9faa5dff"
-};
+const puck={x:200,y:200,size:100,fill:"#9faa5dff",UntouchedPuck:true,velocity:{x:0,y:0},fills:{overlap: "#eee01eff",noOverlap:"#9faa5dff"}};
+
+
 
 const user={
     x:undefined,//mouseX
@@ -18,7 +19,7 @@ const user={
     fill:"#000000"
 };
 const target={
-    x:400,y:600,size:250,fill:"#e8edfaff",stroke:"#000000",stroke:"#b47e52ff",strokeWeight:26,fills:{score: "#33cc33",noGoal:"#e8edfaff"}}
+    x:400,y:600,size:250,fill:"#e8edfaff",stroke:"#000000",stroke:"#b47e52ff",strokeWeight:26,fills:{score: "#33cc33",noGoal:"#5c88daff"}}
    
 /**
  * create the canvas here, the background will be in function draw
@@ -43,18 +44,35 @@ function draw() {
     drawTarget();//actually i think it has to go first here
     drawUser();
     drawPuck(); 
-}
+    draw
 
-function checkInput(){
-    const distanceTargetPuck =dist(mouseX,mouseY,target.x,target.y);
+//Sets the user position to the mouse position
+
+//if statements here ______________________________________________________________________________________________________________
+//function checkInput(){
+    const distanceTargetPuck =dist(puck.x,puck.y,target.x,target.y);
     const puckOverlapsTarget = (distanceTargetPuck<target.size/2);
-    if(puckOverlapsTarget){target.fill=target.fills.score}else{creature.fill=creature.fills.noGoal}
+
+    if(puckOverlapsTarget){target.fill=target.fills.score}else{target.fill=target.fills.noGoal}
+
+    const distanceUserPuck=dist(user.x,user.y,puck.x,puck.y);
+    const userOverlapsPuck = (distanceUserPuck<user.size/2 + puck.size/2);
+
+    //if(userOverlapsPuck){puck.fill=puck.fills.overlap}else{puck.fill=puck.fills.noOverlap};
+    if(userOverlapsPuck){puck.velocity.y=5}else{puck.velocity.y=0}
+
+
     
 
+    //if(userOverlapsPuck){puck.x=puck.x+10};
 
+    //if(userOverlapsPuckOnH){puck.y=puck.y+1};
 
 }
-//Sets the user position to the mouse position
+
+
+
+
 function moveUser() {
   user.x = mouseX;
   user.y = mouseY;}
