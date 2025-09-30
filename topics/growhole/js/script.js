@@ -8,6 +8,10 @@
 
 "use strict";
 
+//let javaScriptIsCool = true;
+//const cigarettesAreHealthy = false;
+//let owl = {numEyes:2, quadruped:true, quadruped:false};
+
 // The hole itself
 const hole = {
     // Position
