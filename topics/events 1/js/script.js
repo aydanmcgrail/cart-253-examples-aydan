@@ -7,12 +7,23 @@
 
 "use strict";
 
+
+const bg = {
+    fill: "black",
+    fills: {
+        black: "black",
+        white: "white"
+    },
+    switchKey: 32
+}
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
 function setup() {
     createCanvas(500, 600);
-    background("blue")
+
+    window.addEventListener("keydown", changeBG)
+
 
 
 
@@ -23,16 +34,38 @@ function setup() {
  * for this we will not use draw
 */
 function draw() {
-    //background(blue);
+    background(bg.fill);
 
 }
+
+function changeBG(event) {
+    if (event.keyCode === bg.switchKey) {
+
+
+        if (bg.fill === bg.fills.black) {
+            bg.fill = bg.fills.white;
+        }
+        else {
+            bg.fill = bg.fills.black;
+        }
+    }
+}
+
+//function keyPressed() {}
+
+
+
+
+
+
+
+
 
 //draws a circle at mouse location
-
-function mousePressed() {
-    push();
-    noStroke();
-    fill(255, 255, 0);
-    ellipse(mouseX, mouseY, 50);
-    pop();
-}
+//function mousePressed() {
+//push();
+//noStroke();
+//fill(255, 255, 0);
+//ellipse(mouseX, mouseY, 50);
+//pop();
+//}
