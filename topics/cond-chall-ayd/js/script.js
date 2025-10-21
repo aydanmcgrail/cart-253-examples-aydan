@@ -60,6 +60,8 @@ function draw() {
 
 }
 
+
+
 //Sets the user position to the mouse position
 
 //if statements here ______________________________________________________________________________________________________________
@@ -73,7 +75,7 @@ function checkInput(){
     const distanceUserPuck=dist(user.x,user.y,puck.x,puck.y);
 
     const userOverlapsPuck = (distanceUserPuck<user.size/2 + puck.height/2);
-    if(userOverlapsPuck){puck.fill=puck.fills.overlap}else{puck.fill=puck.fills.noOverlap};
+    if(userOverlapsPuck){target.fill=target.fills.score}else{target.fill=target.fills.noGoal};
 
 
 
