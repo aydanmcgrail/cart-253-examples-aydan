@@ -37,7 +37,7 @@ function draw() {
     background(bg.fill);
 
 }
-
+///all this so only on key in this case it is space
 function changeBG(event) {
     if (event.keyCode === bg.switchKey) {
 
