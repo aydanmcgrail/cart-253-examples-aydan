@@ -1,169 +1,40 @@
 /**
  * Title of Project
  * Author Name
- * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ *
+ *interactive speech process
  */
 
 "use strict";
-//let circles = [];
-/**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+/////////////    0        1       2            3
+let speech = ["weni.", "Vidi.", "Vici", "Sensi malum."];
+//which sentence to display, starts at 0= weni
+let speechIndex = 0;
 
 function setup() {
-    createCanvas(500, 500);
-    //creates a cricle
-    const newCircle = createCircle();
-    //push it into the array
-    circles.push(newCircle);
-
-
-    //also add another circle using an explicit index. 
-    circles[1] = createCircle();
-
+  createCanvas(600, 100);
 }
 
-function createCircle() {
-    const circle = {
-        x: random{ 0, width },
-        y: random{ 0, height },
-        size: random { 10, 50 }
-};
-return circle;
-}
-*/
-
-/**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
-*
 function draw() {
-    background("yellow");
+  background(0);
 
-    for (let currentCircle of circles) {
-        drawCircle(currentCircle);
-    }
+  //get the current line of speech
+  let currentLine = speech[speechIndex];
 
+  // display the line
+  push();
+  fill(255);
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  text(currentLine, width / 2, height / 2);
+  pop();
 }
 
-function drawCircle(circleToDraw) {
-    push();
-    noStroke();
-    fill(0);
-    ellipse(circleToDraw.x, circleToDraw.y, circleToDraw.size);
-
-}
-
-function keyPressed{
-
-}
-*/
-/**
- * Bug Squasher (Debugging Arrays)
- * Pippin Barr
- * 
- * Squash bugs by clicking on them. Squish.
- */
-
-"use strict";
-
-// The bugs
-let bugs = [];
-
-// Time between bugs. This will get bigger.
-const minimumBugDelay = 0.5 * 1;
-const maximumBugDelay = 2 * 1;
-let bugDelay = maximumBugDelay;
-
-/**
- * Create the canvas
-*/
-function setup() {
-    createCanvas(600, 600);
-
-    setTimeout(addBug, bugDelay);
-}
-
-/**
- * Adds a bug to the array, updates the timer to get faster
- */
-function addBug() {
-    // Create and add a bug
-    const bug = createBug();
-    bugs.push(bug);
-
-    // Reduce the delay
-    bugDelay -= random(0, 100);
-    // Constrain it (so they don't come TOO fast)
-    bugDelay = constrain(bugDelay, minimumBugDelay, maximumBugDelay);
-    // Set the new timeout
-    setTimeout(addBug, bugDelay);
-}
-
-/**
- * Creates and returns a randomized bug that will start at the top of the
- * canvas and move down
- */
-function createBug() {
-    const bug = {
-        x: random(0, width),
-        y: -100,
-        velocity: {
-            x: 0,
-            y: random(2, 10)
-        },
-        size: random(15, 40),
-        fill: "#445566"
-    };
-    return bug;
-}
-
-/**
- * Move and display the bugs
-*/
-function draw() {
-    background("#ddeeff");
-
-    // Move and draw the bugs
-    for (let bug of bugs) {
-        moveBug(bug);
-        drawBug(bug);
-    }
-}
-
-/**
- * Moves a bug according to its velocity
- */
-function moveBug(bug) {
-    bug.x += bug.velocity.x;
-    bug.y += bug.velocity.y;
-}
-
-/**
- * Draws a bug according to its properties
- */
-function drawBug(bug) {
-    push();
-    noStroke();
-    fill(bug.fill);
-    ellipse(bug.x, bug.y, bug.size);
-    pop();
-}
-
-/**
- * Removes bugs if you click (near) them
- */
 function mousePressed() {
-    // We need to check EVERY bug to see if it was clicked
-    for (let bug of bugs) {
-        // Get the distance between the mouse and the bug
-        const d = dist(mouseX, mouseY, bug.x, bug.y);
-        // Check if it's close enough
-        if (d < bug.size * 2) {
-            // If so get the index of this bug in the bugs array
-            const index = bugs.indexOf(bug);
-            // And remove it
-            bugs.splice(index, 1);
-        }
-    }
+  //next line
+  speechIndex = speechIndex + 1;
+  //handle the end of the speech
+  if (speechIndex >= speech.length) {
+    speechIndex = 0;
+  }
 }
