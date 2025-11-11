@@ -37,11 +37,23 @@ function setup() {
     createCanvas(300, 300);
 }
 
+function createFly() {
+    let fly = {
+        x: random(0, width),
+        y: random(0, height),
+        size: random(2, 10),
+        buzziness: random(2, 8),
+    };
+    return fly;
+}
+
 /**
  * Moves and displays the flies
  */
 function draw() {
     background("#87ceeb");
+
+    console.log(flies);
 
     // Go through all the flies
     for (let fly of flies) {
@@ -68,4 +80,9 @@ function drawFly(fly) {
     fill(0);
     ellipse(fly.x, fly.y, fly.size);
     pop();
+}
+
+function keyPressed() {
+    const newFly = createFly();
+    flies.push(newFly);
 }
